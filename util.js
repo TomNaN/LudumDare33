@@ -56,16 +56,3 @@ function getFile(file){
 function readFile(){
   mapData = xmlhttp.readyState==4?xmlhttp.responseText:null;
 }
-function drawMap(text){
-  map = text.replace(/\r/g,"").split('\n'); // FOR SOME REASON text HAD AN ODD \r
-  map.forEach(function(e,y){
-    e.split('').forEach(function(e,x){
-      switch(+e){
-        case 1:tiles.push(new TileBasic(x*spriteWidth, y*spriteWidth));break;    
-        case 2:entitys.unshift(new Hero(x*spriteWidth, y*spriteWidth, 4, 4, 10));tiles.push(new TileAir(x*spriteWidth, y*spriteWidth));break;
-        case 3:tiles.push(new TileLantern(x*spriteWidth, y*spriteWidth));break; 
-        default:tiles.push(new TileAir(x*spriteWidth, y*spriteWidth));
-      }
-    })
-  });
-}
