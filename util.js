@@ -62,7 +62,7 @@ function drawMap(text){
     e.split('').forEach(function(e,x){
       switch(+e){
         case 1:tiles.push(new TileBasic(x*spriteWidth, y*spriteWidth));break;    
-        case 2:entitys.push(new Hero(x*spriteWidth, y*spriteWidth, 4, 4, 10));tiles.push(new TileAir(x*spriteWidth, y*spriteWidth));break;
+        case 2:entitys.unshift(new Hero(x*spriteWidth, y*spriteWidth, 4, 4, 10));tiles.push(new TileAir(x*spriteWidth, y*spriteWidth));break;
         case 3:tiles.push(new TileLantern(x*spriteWidth, y*spriteWidth));break; 
         default:tiles.push(new TileAir(x*spriteWidth, y*spriteWidth));
       }
