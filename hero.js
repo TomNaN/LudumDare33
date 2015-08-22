@@ -9,6 +9,7 @@ function Hero(x, y, speed, maxJumpFuel){
 }
 Hero.prototype = Object.create(Entity.prototype);
 Hero.prototype.move = function(direction){
+  this.falling?this.y++:null;
   if(direction == "right"){this.x += this.speed;}
   if(direction == "left"){this.x -= this.speed;}
   if(direction == "up"){this.jump();}
