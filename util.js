@@ -8,6 +8,7 @@ function begin(){
   canvas = document.getElementById("gameCanvas");
   ctx = canvas.getContext("2d");
   drawMap(mapData);
+  movement();
   setInterval(game, 1000/60);
 
 }
@@ -23,6 +24,9 @@ function game() {
 	  entitys[i].spriteX+=0.2;
   }
   tiles.forEach(function(e){e.draw()}); 
+}
+function errorHandler(error){
+  throw error;
 }
 function getFile(file){
   listeners.forEach(function(e){xmlhttp.removeEventListener("readystate",e)});

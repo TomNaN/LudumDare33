@@ -23,11 +23,11 @@ Entity.prototype.draw = function(){
 Entity.prototype.jump = function(){
   //TODO
   if(this.onGround) {
-	if(this.jumpFuel > 0) {
-	  this.y += this.speed;
-	  this.jumpFuel--;
-	  if(this.jumpFuel == 0) this.falling = true;
-	}
+  	if(this.jumpFuel > 0) {
+  	  this.y += this.speed;
+  	  this.jumpFuel--;
+  	  if(this.jumpFuel == 0) this.falling = true;
+  	}
   }
   else this.jumpFuel++;
 }
