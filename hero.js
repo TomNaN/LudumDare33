@@ -14,7 +14,7 @@ Hero.prototype.move = function(){
   this.y>canvas.height?this.y=-10:null;
   this.x>canvas.width?this.x=-5:null;
   this.falling?this.y++:null;
-  moveObj.right?(function(){this.x += this.xSpeed;this.facing="right";this.spriteX+=0.2}).call(entitys[0],null):null;
-  moveObj.left?(function(){this.x -= this.xSpeed;this.facing = "left";this.spriteX += 0.2}).call(entitys[0],null):null;
+  moveObj.right&&!moveObj.left?(function(){this.x += this.xSpeed;this.facing="right";this.spriteX+=0.2}).call(entitys[0],null):null;
+  moveObj.left&&!moveObj.right?(function(){this.x -= this.xSpeed;this.facing = "left";this.spriteX += 0.2}).call(entitys[0],null):null;
   moveObj.jump?this.jump():null;
 }
