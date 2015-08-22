@@ -3,7 +3,9 @@ function movement(){
 }
 function eventHandler(e){
   switch(e.keyCode){
-    case 87: //jump
+    case 65: entitys[0].move("left");
+    case 69: entitys[0].move("right");
+    case 87: entitys[0].jump();
     default:
   }
 }
