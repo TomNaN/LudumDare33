@@ -1,8 +1,9 @@
 var entitys = [];
-function Entity(x, y, speed, maxJumpFuel){
+function Entity(x, y, xSpeed, ySpeed, maxJumpFuel){
   this.x = x;
   this.y = y;
-  this.speed = speed;
+  this.xSpeed = xSpeed;
+  this.ySpeed = ySpeed;
   this.maxJumpFuel = maxJumpFuel;
   this.jumpFuel = maxJumpFuel;
   this.spriteX = 0;
@@ -25,7 +26,7 @@ Entity.prototype.draw = function(){
 Entity.prototype.jump = function(){
   if(this.onGround) {
   	if(this.jumpFuel > 0) {
-  	  this.y -= this.speed;
+  	  this.y -= this.ySpeed;
   	  this.jumpFuel--;
   	  if(this.jumpFuel == 0){this.falling = true;}
   	}

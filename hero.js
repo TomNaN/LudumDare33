@@ -1,8 +1,9 @@
-function Hero(x, y, speed, maxJumpFuel){
+function Hero(x, y, xSpeed, ySpeed, maxJumpFuel){
   Entity.apply(this, arguments);
   this.x = x;
   this.y = y;
-  this.speed = speed;
+  this.xSpeed = xSpeed;
+  this.ySpeed = ySpeed;
   this.maxJumpFuel = maxJumpFuel;
   this.jumpFuel = maxJumpFuel;
   this.spriteY = 1;
