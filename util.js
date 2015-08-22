@@ -19,7 +19,6 @@ function game() {
   //TODO: Järjestys olisi jotakin: tarkista tuleeko komentoja (käyttäjän liike + AI:n liike) -> tarkista törmäykset -> liiku jos mahdollista -> piirrä.
   for(var i=0; i<entitys.length; i++) {
     checkCollision();
-	  moveCommands[dirCommand]();
     entitys[i].move();
     entitys[i].draw();
 	  entitys[i].spriteX+=0.2;
