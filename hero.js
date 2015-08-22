@@ -10,7 +10,7 @@ function Hero(x, y, speed, maxJumpFuel){
 Hero.prototype = Entity.prototype;
 Hero.prototype.constructor = Hero;
 Hero.prototype.move = function(direction){
-  if(direction == "right") this.x += this.speed;
-  if(direction == "left") this.x -= this.speed;
-  if(direction == "up") jump();
+  if(direction == "right"){this.x += this.speed;}
+  if(direction == "left"){this.x -= this.speed;}
+  if(direction == "up"){this.jump();}
 }
