@@ -3,7 +3,8 @@ function Hero(x, y, xSpeed, ySpeed, maxJumpFuel){
   this.x = x;
   this.y = y;
   this.xSpeed = xSpeed;
-  this.ySpeed = ySpeed;
+  this.yMaxSpeed = ySpeed;
+  this.ySpeed = 0;
   this.maxJumpFuel = maxJumpFuel;
   this.jumpFuel = maxJumpFuel;
   this.spriteY = 1;
