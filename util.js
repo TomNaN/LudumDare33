@@ -48,7 +48,7 @@ function errorHandler(error){
   throw error;
 }
 function getFile(file){
-  listeners.forEach(function(e){xmlhttp.removeEventListener("readystate",e)});
+  listeners.forEach(function(e){xmlhttp.removeEventListener("readystatechange",e)});
   xmlhttp.addEventListener("readystatechange",readFile);
   xmlhttp.open("GET",file,false);
   xmlhttp.send(); 
