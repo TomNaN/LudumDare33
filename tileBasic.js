@@ -2,6 +2,7 @@ var tiles = [];
 function TileBasic(x, y){
   this.x = x;
   this.y = y;
+  this.type = "basic";
 }
 TileBasic.prototype = Object.create(Tile.prototype);
 TileBasic.prototype.draw = function(){

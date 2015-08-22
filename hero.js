@@ -15,6 +15,6 @@ Hero.prototype.move = function(){
   this.x>canvas.width?this.x=-5:null;
   this.falling?this.y++:null;
   moveObj.right?this.x += this.xSpeed:null;
-  moveObj.left?this.x -= this.ySpeed:null;
+  moveObj.left?this.x -= this.xSpeed:null;
   moveObj.jump?this.jump():null;
 }

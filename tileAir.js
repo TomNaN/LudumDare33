@@ -1,6 +1,7 @@
 function TileAir(x, y){
   this.x = x;
   this.y = y;
+  this.type = "air";
 }
 TileAir.prototype = Object.create(Tile.prototype);
 TileAir.prototype.draw = function() {

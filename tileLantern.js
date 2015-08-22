@@ -1,6 +1,7 @@
 function TileLantern(x, y){
   this.x = x;
   this.y = y;
+  this.type = "lantern";
 }
 TileLantern.prototype = Object.create(Tile.prototype);
 TileLantern.prototype.draw = function(){

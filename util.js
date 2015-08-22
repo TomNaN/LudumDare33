@@ -18,7 +18,7 @@ function game() {
   ctx.fillRect(0,0,640,480);
   //TODO: Järjestys olisi jotakin: tarkista tuleeko komentoja (käyttäjän liike + AI:n liike) -> tarkista törmäykset -> liiku jos mahdollista -> piirrä.
   for(var i=0; i<entitys.length; i++) {
-    checkCollision();
+    entitys[i].collision();
     entitys[i].move();
     entitys[i].draw();
 	  entitys[i].spriteX+=0.2;
@@ -43,7 +43,7 @@ function drawMap(text){
     e.split('').forEach(function(e,x){
       switch(+e){
         case 1:tiles.push(new TileBasic(x*spriteWidth, y*spriteWidth));break;    
-        case 2:entitys.push(new Hero(x*spriteWidth, y*spriteWidth, 4, 4, 10));break;
+        case 2:entitys.push(new Hero(x*spriteWidth, y*spriteWidth, 4, 4, 10));tiles.push(new TileAir(x*spriteWidth, y*spriteWidth));break;
         case 3:tiles.push(new TileLantern(x*spriteWidth, y*spriteWidth));break; 
         default:tiles.push(new TileAir(x*spriteWidth, y*spriteWidth));
       }
