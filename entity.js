@@ -32,7 +32,6 @@ Entity.prototype.collision = function(){
 }
 Entity.prototype.draw = function(){
   if(this.spriteX > 3){this.spriteX = 0}
-  if(this.y > canvas.height-spriteHeight){this.y = canvas.height-spriteHeight}
   ctx.drawImage(spriteSheet, Math.floor(this.spriteX) * spriteWidth, this.spriteY*spriteHeight, spriteWidth, spriteHeight, this.x, this.y, spriteWidth, spriteHeight);
 }
 Entity.prototype.jump = function(){

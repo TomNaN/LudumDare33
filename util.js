@@ -2,7 +2,11 @@ var canvas,
     ctx,
     xmlhttp = new XMLHttpRequest(),
     listeners = [readFile],
-    mapData;
+    mapData,
+    timerClock = 0,
+    timer,
+    elapsed,
+    fps = "6";
 function begin(){
   getFile("resources/level.txt")
   canvas = document.getElementById("gameCanvas");
@@ -13,6 +17,11 @@ function begin(){
 
 }
 function game() {
+  if(timerClock==0){     // this calculates the current fps the game is running at
+    timer = new Date();
+    timer = timer.getTime();
+  }
+  timerClock++;
   ctx.clearRect(0, 0, 640, 480);
   ctx.fillStyle = "#1122FF";
   ctx.fillRect(0,0,640,480);
@@ -24,6 +33,15 @@ function game() {
 	  entitys[i].spriteX+=0.2;
   }
   tiles.forEach(function(e){e.draw()}); 
+  if(timerClock==60){     // related to calculating fps
+    fps = String(~~(60/(elapsed/1000)));
+    elapsed = new Date();
+    elapsed = elapsed.getTime()-timer;
+    timerClock=0;
+  }
+  ctx.fillStyle = "#FF0000";
+  ctx.font = "30px Verdana";
+  ctx.fillText(fps,5,35);
 }
 function errorHandler(error){
   throw error;

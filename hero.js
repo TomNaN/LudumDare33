@@ -11,7 +11,7 @@ function Hero(x, y, xSpeed, ySpeed, maxJumpFuel){
 }
 Hero.prototype = Object.create(Entity.prototype);
 Hero.prototype.move = function(){
-  this.y>canvas.height?this.y=10:null;
+  this.y>canvas.height?this.y=-10:null;
   this.x>canvas.width?this.x=-5:null;
   this.falling?this.y++:null;
   moveObj.right?this.x += this.xSpeed:null;
