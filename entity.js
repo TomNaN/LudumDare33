@@ -1,9 +1,11 @@
 var entitys = [];
+var gravity = 4;
 function Entity(x, y, xSpeed, ySpeed, maxJumpFuel){
   this.x = x;
   this.y = y;
   this.xSpeed = xSpeed;
-  this.ySpeed = ySpeed;
+  this.ySpeed = 0;
+  this.yMaxSpeed = ySpeed;
   this.maxJumpFuel = maxJumpFuel;
   this.jumpFuel = maxJumpFuel;
   this.spriteX = 0;
@@ -25,11 +27,13 @@ Entity.prototype.draw = function(){
 }
 Entity.prototype.jump = function(){
   if(this.onGround) {
+    this.ySpeed = this.yMaxSpeed;
+	this.y -= this.ySpeed;
   	if(this.jumpFuel > 0) {
-  	  this.y -= this.ySpeed;
   	  this.jumpFuel--;
   	  if(this.jumpFuel == 0){this.falling = true;}
   	}
   }
-  else this.jumpFuel++;
+  else{this.jumpFuel++};
+  //TODO: This goes to the collision function?************if(this.falling){this.ySpeed -= gravity};
 }
