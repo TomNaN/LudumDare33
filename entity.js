@@ -12,6 +12,7 @@ function Entity(x, y, xSpeed, ySpeed, maxJumpFuel){
   this.spriteY = 0;
   this.onGround = true;
   this.falling = false;
+  this.facing = "right";
   this.collisionArray = [~~(this.x/spriteWidth),~~(this.y/spriteHeight)];
   this.test = [];
 }
@@ -32,7 +33,7 @@ Entity.prototype.collision = function(){
 }
 Entity.prototype.draw = function(){
   if(this.spriteX > 3){this.spriteX = 0}
-  ctx.drawImage(spriteSheet, Math.floor(this.spriteX) * spriteWidth, this.spriteY*spriteHeight, spriteWidth, spriteHeight, this.x, this.y, spriteWidth, spriteHeight);
+  (this.facing=="right")?ctx.drawImage(spriteSheet, Math.floor(this.spriteX) * spriteWidth, this.spriteY*spriteHeight, spriteWidth, spriteHeight, this.x, this.y, spriteWidth, spriteHeight):ctx.drawImage(spriteSheet, Math.floor(4+this.spriteX) * spriteWidth, this.spriteY*spriteHeight, spriteWidth, spriteHeight, this.x, this.y, spriteWidth, spriteHeight);
 }
 Entity.prototype.jump = function(){
   if(this.onGround) {

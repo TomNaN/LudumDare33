@@ -24,7 +24,6 @@ function game() {
     entitys[i].collision();
     entitys[i].move();
     entitys[i].draw();
-	  entitys[i].spriteX+=0.2;
   }
   tiles.forEach(function(e){e.draw()}); 
   getFPS();
