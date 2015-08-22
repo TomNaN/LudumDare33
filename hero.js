@@ -13,7 +13,7 @@ Hero.prototype.move = function(){
   this.y>canvas.height?this.y=10:null;
   this.x>canvas.width?this.x=-5:null;
   this.falling?this.y++:null;
-  moveObj.right?this.x += this.speed:null;
-  moveObj.left?this.x -= this.speed:null;
+  moveObj.right?this.x += this.xSpeed:null;
+  moveObj.left?this.x -= this.ySpeed:null;
   moveObj.jump?this.jump():null;
 }
