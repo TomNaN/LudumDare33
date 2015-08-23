@@ -13,11 +13,9 @@ function Hero(x, y, xSpeed, ySpeed, maxJumpFuel){
 Hero.prototype = Object.create(Entity.prototype);
 Hero.prototype.move = function(){
   this.y>canvas.height?this.y=-10:null;
-<<<<<<< HEAD
   this.x>canvas.width-10?(function(){this.x=-10;level++;drawMap(mapData,true)}).call(this,null):null;
   this.x<-20?(function(){this.x=canvas.width-20;level?(function(){level--;drawMap(mapData,true);}).call(this,null):this.x=-19;}).call(this,null):null;
   this.falling?this.y++:null;
-=======
   this.x>canvas.width+20?(function(){this.x=-10;level++;drawMap(mapData,true)}).call(this,null):null;
   this.x<-20?(function(){this.x=canvas.width+10;level?(function(){level--;drawMap(mapData,true);}).call(this,null):this.x=-19;}).call(this,null):null;
   if(this.falling){
@@ -25,7 +23,6 @@ Hero.prototype.move = function(){
     this.y-=this.ySpeed;
 	//Now the gravity works
   }
->>>>>>> 9bc3048a3690a02ed5a9ebc1e1793c2f4de7d90f
   this.hitBox = {top:this.y,left:this.x,right:this.x+40,bottom:this.y+40}
   moveObj.right&&!moveObj.left?(function(){this.x += this.xSpeed;this.facing="right";this.spriteX+=0.2}).call(entitys[0],null):null;
   moveObj.left&&!moveObj.right?(function(){this.x -= this.xSpeed;this.facing = "left";this.spriteX += 0.2}).call(entitys[0],null):null;
