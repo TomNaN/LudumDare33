@@ -21,7 +21,7 @@ function game() {
   ctx.fillRect(0,0,640,480);
   //TODO: Järjestys olisi jotakin: tarkista tuleeko komentoja (käyttäjän liike + AI:n liike) -> tarkista törmäykset -> liiku jos mahdollista -> piirrä.
   for(var i=0; i<entitys.length; i++) {
-    entitys[i].collision();
+    checkCollisions.call(entitys[i],null);
     entitys[i].move();
     entitys[i].draw();
   }
@@ -34,7 +34,7 @@ function getFPS(){
     timer = timer.getTime();
   }
   timerClock++;  
-  if(timerClock==60){     // related to calculating fps
+  if(timerClock==60){
     var elapsed = new Date();
     elapsed = elapsed.getTime()-timer;
     fps = String(~~(60/(elapsed/1000)));

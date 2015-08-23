@@ -1,6 +1,6 @@
 var spriteWidth = 40,
     spriteHeight = 40,
-    spriteSheet = new Image(),
+    spriteSheet = new Image();
     spriteSheet.src = "resources/spriteSheet.png";
 function drawMap(text){
   map = text.replace(/\r/g,"").split('\n'); // FOR SOME REASON text HAD AN ODD \r

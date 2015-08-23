@@ -13,8 +13,7 @@ function Entity(x, y, xSpeed, ySpeed, maxJumpFuel){
   this.onGround = true;
   this.falling = false;
   this.facing = "right";
-  this.collisionArray = [~~(this.x/spriteWidth),~~(this.y/spriteHeight)];
-  this.test = [];
+  this.collisionArray = [];
 }
 Entity.prototype.getX = function(){
   return this.x;
@@ -23,13 +22,16 @@ Entity.prototype.getY = function(){
   return this.y;
 }
 Entity.prototype.collision = function(){
-  this.collisionArray = [~~(this.x/spriteWidth),~~(this.y/spriteHeight)];
-  var tileNum = 16*this.collisionArray[1]+this.collisionArray[0];
-  this.test[0] = tiles[tileNum];
-  this.test[1] = tiles[tileNum-16]?tiles[tileNum-16]:null;                    
-  this.test[2] = tiles[tileNum+16]?tiles[tileNum+16]:null;
-  this.test[3] = tiles[tileNum-1]?tiles[tileNum-1]:null;
-  this.test[4] = tiles[tileNum+1]?tiles[tileNum+1]:null;
+  var tileNum = 16*(~~(this.y/spriteHeight))+(~~(this.x/spriteWidth));
+  this.collisionArray[0] = tiles[tileNum];
+  this.collisionArray[1] = tiles[tileNum-16]?tiles[tileNum-16]:null;                    
+  this.collisionArray[2] = tiles[tileNum+16]?tiles[tileNum+16]:null;    
+  this.collisionArray[3] = tiles[tileNum-1]?tiles[tileNum-1]:null;      
+  this.collisionArray[4] = tiles[tileNum+1]?tiles[tileNum+1]:null;
+  this.collisionArray[5] = tiles[tileNum+17]?tiles[tileNum+17]:null;
+  this.collisionArray[6] = tiles[tileNum+15]?tiles[tileNum+15]:null;
+  this.collisionArray[7] = tiles[tileNum-17]?tiles[tileNum-17]:null;
+  this.collisionArray[8] = tiles[tileNum-15]?tiles[tileNum-15]:null;
 }
 Entity.prototype.draw = function(){
   if(this.spriteX > 3){this.spriteX = 0}
