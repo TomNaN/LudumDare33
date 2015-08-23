@@ -1,0 +1,1 @@
+var sfxJump = new Audio("resources/playerJump.wav");
