@@ -1,6 +1,6 @@
-function checkCollisions(){
-  this.collision();
-  this.collisionArray.forEach(function(e){
-    
+function checkCollisions(entity){
+  entity.collision();
+  entity.collisionArray.forEach(function(e){
+    e?e.collision(entity):null;  
   });
 }

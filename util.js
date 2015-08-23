@@ -21,7 +21,7 @@ function game() {
   ctx.fillRect(0,0,640,480);
   //TODO: Järjestys olisi jotakin: tarkista tuleeko komentoja (käyttäjän liike + AI:n liike) -> tarkista törmäykset -> liiku jos mahdollista -> piirrä.
   for(var i=0; i<entitys.length; i++) {
-    checkCollisions.call(entitys[i],null);
+    checkCollisions(entitys[i]);
     entitys[i].move();
     entitys[i].draw();
   }
