@@ -9,5 +9,5 @@ TileAir.prototype.draw = function() {
   ctx.drawImage(spriteSheet, 0, 0, spriteWidth, spriteHeight, this.x, this.y, spriteWidth, spriteHeight);
 }
 TileAir.prototype.collision = function(){
-  return null;
+  return false;
 }
