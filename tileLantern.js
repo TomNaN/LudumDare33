@@ -12,9 +12,9 @@ TileLantern.prototype.draw = function(){
 TileLantern.prototype.collision = function(obj){
   if(!this.broken){
     var a=obj.hitBox,b=this.hitBox;
-    if(a.right-5>b.left&&a.left+5<b.right&&a.bottom+obj.ySpeed>b.top&&a.top<b.bottom-5){this.broken=true;return "top";}   
-    if(a.right-5>b.left&&a.left+5<b.right&&a.bottom+obj.ySpeed>b.top+10&&a.top<b.bottom){obj.y=b.bottom+1;obj.falling=true;return "bottom";} 
-    if(a.right>b.left-40&&a.left+5<b.right&&a.bottom+obj.ySpeed>b.top&&a.top<b.bottom){obj.x=b.left-41;return "left";}  
-    if(a.right+5>b.left&&a.left<b.right&&a.bottom+obj.ySpeed>b.top+1&&a.top<b.bottom){obj.x=b.right+1;return "right";} 
+    if(a.right-5>b.left&&a.left+5<b.right&&a.bottom>b.top+10&&a.top<b.bottom){return "bottom";} 
+    if(a.right>b.left-40&&a.left+5<b.right&&a.bottom>b.top+10&&a.top<b.bottom){return "left";}  
+    if(a.right+5>b.left&&a.left<b.right&&a.bottom>b.top+10&&a.top<b.bottom){return "right";}
+    if(a.right-5>b.left&&a.left+5<b.right&&a.bottom>b.top&&a.top<b.bottom-5&&obj.falling){this.broken=true;return "top";}    
   }
 }
