@@ -18,6 +18,7 @@ Hero.prototype.move = function(){
   if(this.falling){
     this.ySpeed-=gravity*0.1;
     this.y-=this.ySpeed;
+	//Now the gravity works
   }
   this.hitBox = {top:this.y,left:this.x,right:this.x+40,bottom:this.y+40}
   moveObj.right&&!moveObj.left?(function(){this.x += this.xSpeed;this.facing="right";this.spriteX+=0.2}).call(entitys[0],null):null;
