@@ -11,6 +11,7 @@ TileBasic.prototype.draw = function(){
 }                    
 TileBasic.prototype.collision = function(obj){
   var a=obj.hitBox,b=this.hitBox;
-  if(a.right-10>b.left&&a.left+10<b.right&&a.bottom+obj.ySpeed<b.top){obj.y=b.top-41;obj.falling=false;}
-  if(a.right+40>b.left+obj.xSpeed&&a.bottom+obj.ySpeed>b.top){obj.x=b.left-42+obj.xSpeed;}
-}
+  //if(a.left<b.right&&a.right>b.left&&a.top<b.bottom&&a.bottom>b.top){console.log("collision")}
+  if(a.right-10>b.left&&a.left+10<b.right&&a.bottom+obj.ySpeed>b.top){obj.y=b.top-41;obj.falling=false;}
+  if(a.right>b.left-40&&a.left+10<b.right&&a.bottom+obj.ySpeed>b.top+10){obj.x=b.left-41;}
+}                    
