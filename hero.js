@@ -8,7 +8,7 @@ function Hero(x, y, xSpeed, ySpeed, maxJumpFuel){
   this.maxJumpFuel = maxJumpFuel;
   this.jumpFuel = maxJumpFuel;
   this.spriteY = 1;
-  this.hitBox = {top:this.y,left:this.x,right:this.x+40,bottom:this.y-40}
+  this.hitBox = {top:this.y,left:this.x,right:this.x+40,bottom:this.y+40}
 }
 Hero.prototype = Object.create(Entity.prototype);
 Hero.prototype.move = function(){
