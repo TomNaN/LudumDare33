@@ -45,6 +45,6 @@ Entity.prototype.jump = function(){
   	  if(this.jumpFuel <= 0){this.falling = true;}
   	}
   }
-  else if(this.jumpFuel < this.maxJumpFuel){this.jumpFuel++}
+  else if(this.jumpFuel < this.maxJumpFuel){this.jumpFuel=this.maxJumpFuel}
   //TODO: This goes to the collision function?************if(this.falling){this.ySpeed -= gravity};
 }
