@@ -15,7 +15,10 @@ Hero.prototype.move = function(){
   this.y>canvas.height?this.y=-10:null;
   this.x>canvas.width+20?(function(){this.x=-10;level++;drawMap(mapData,true)}).call(this,null):null;
   this.x<-20?(function(){this.x=canvas.width+10;level?(function(){level--;drawMap(mapData,true);}).call(this,null):this.x=-19;}).call(this,null):null;
-  this.falling?this.y++:null;
+  if(this.falling){
+    this.ySpeed-=gravity*0.1;
+    this.y-=this.ySpeed;
+  }
   this.hitBox = {top:this.y,left:this.x,right:this.x+40,bottom:this.y+40}
   moveObj.right&&!moveObj.left?(function(){this.x += this.xSpeed;this.facing="right";this.spriteX+=0.2}).call(entitys[0],null):null;
   moveObj.left&&!moveObj.right?(function(){this.x -= this.xSpeed;this.facing = "left";this.spriteX += 0.2}).call(entitys[0],null):null;
