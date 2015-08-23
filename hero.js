@@ -13,7 +13,7 @@ function Hero(x, y, xSpeed, ySpeed, maxJumpFuel){
 Hero.prototype = Object.create(Entity.prototype);
 Hero.prototype.move = function(){
   this.y>canvas.height?this.y=-10:null;
-  this.x>canvas.width?this.x=-5:null;
+  this.x>canvas.width?(function(){this.x=-5;level++;drawMap(mapData)}).call(this,null):null;
   this.falling?this.y++:null;
   this.hitBox = {top:this.y,left:this.x,right:this.x+40,bottom:this.y+40}
   moveObj.right&&!moveObj.left?(function(){this.x += this.xSpeed;this.facing="right";this.spriteX+=0.2}).call(entitys[0],null):null;

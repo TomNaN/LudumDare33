@@ -3,8 +3,9 @@ var spriteWidth = 40,
     spriteSheet = new Image();
     spriteSheet.src = "resources/spriteSheet.png";
 function drawMap(text){
-  map = text.replace(/\r/g,"").split('\n'); // FOR SOME REASON text HAD AN ODD \r
-  map.forEach(function(e,y){
+  tiles = [];
+  map = text.replace(/\r/g,"").split('-'); // FOR SOME REASON text HAD AN ODD \r
+  map[map[level]?level:(function(){level=0;entitys.shift();return 0}).call(null,null)].replace(/^\s+/,"").split('\n').forEach(function(e,y){
     e.split('').forEach(function(e,x){
       switch(+e){
         case 1:tiles.push(new TileBasic(x*spriteWidth, y*spriteWidth));break;    

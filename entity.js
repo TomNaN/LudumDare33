@@ -42,7 +42,7 @@ Entity.prototype.jump = function(){
     this.y -= this.ySpeed;
   	if(this.jumpFuel > 0) {
   	  this.jumpFuel--;
-  	  if(this.jumpFuel == 0){this.falling = true;}
+  	  if(this.jumpFuel <= 0){this.falling = true;}
   	}
   }
   else if(this.jumpFuel < this.maxJumpFuel){this.jumpFuel++}

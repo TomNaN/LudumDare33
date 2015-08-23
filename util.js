@@ -5,7 +5,8 @@ var canvas,
     mapData,
     timerClock = 0,
     timer,
-    fps = "60";
+    fps = "60",
+    level=0;
 function begin(){
   getFile("resources/level.txt")
   canvas = document.getElementById("gameCanvas");
