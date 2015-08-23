@@ -38,6 +38,7 @@ Entity.prototype.draw = function(){
 }
 Entity.prototype.jump = function(){
   if(!this.falling) {
+    sfxJump.play();
     this.ySpeed = this.yMaxSpeed;
     this.y -= this.ySpeed;
   	if(this.jumpFuel > 0) {
