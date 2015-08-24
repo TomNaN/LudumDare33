@@ -15,7 +15,7 @@ TileLantern.prototype.collision = function(obj){
     if(a.right-5>b.left&&a.left+5<b.right&&a.bottom>b.top+10&&a.top<b.bottom){return false;} 
     if(a.right>b.left-40&&a.left+5<b.right&&a.bottom>b.top+10&&a.top<b.bottom){return false;}  
     if(a.right+5>b.left&&a.left<b.right&&a.bottom>b.top+10&&a.top<b.bottom){return false;}
-    if(a.right-5>b.left&&a.left+5<b.right&&a.bottom>b.top&&a.top<b.bottom-5&&obj.falling){this.broken=true;return false;}    
+    if(a.right-5>b.left&&a.left+5<b.right&&a.bottom>b.top&&a.top<b.bottom-5&&obj.falling&&!obj.jumpFlag){this.broken=true;return false;}    
   }
   return false;
 }

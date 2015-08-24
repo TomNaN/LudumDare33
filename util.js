@@ -6,7 +6,8 @@ var canvas,
     timerClock = 0,
     timer,
     fps = "60",
-    level=0;
+    level=0,
+    levels = [];
 function begin(){
   getFile("resources/level.txt")
   canvas = document.getElementById("gameCanvas");
