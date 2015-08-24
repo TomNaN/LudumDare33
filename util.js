@@ -7,7 +7,8 @@ var canvas,
     timer,
     fps = "60",
     level=0,
-    levels = [];
+    levels = [],
+    entityBox = [];
 function begin(){
   getFile("resources/level.txt")
   canvas = document.getElementById("gameCanvas");
@@ -15,7 +16,6 @@ function begin(){
   drawMap(mapData);
   movement();
   setInterval(game, 1000/60);
-
 }
 function game() {
   ctx.clearRect(0, 0, 640, 480);
