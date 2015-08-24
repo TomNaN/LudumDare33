@@ -11,7 +11,7 @@ function drawMap(text,cont){
       e.split('').forEach(function(e,x){
         switch(+e){
           case 1:tiles.push(new TileBasic(x*spriteWidth, y*spriteWidth));break;    
-          case 2:cont?null:entitys.unshift(new Hero(x*spriteWidth, y*spriteWidth, 4, 4, 20));tiles.push(new TileAir(x*spriteWidth, y*spriteWidth));break;
+          case 2:cont?null:entitys.unshift(new Hero(x*spriteWidth, y*spriteWidth, 5, 4, 20));tiles.push(new TileAir(x*spriteWidth, y*spriteWidth));break;
           case 3:tiles.push(new TileLantern(x*spriteWidth, y*spriteWidth));break;
           case 4:entitys.push(new Dog(x*spriteWidth, y*spriteWidth, 3, 3, 0));tiles.push(new TileAir(x*spriteWidth, y*spriteWidth));break;
           case 5:tiles.push(new TileCloud(x*spriteWidth, y*spriteWidth,4));break;
@@ -37,6 +37,6 @@ function ending(win,text){
     ctx.font = "20px Verdana";
     ctx.fillText(text,50,150);
     ctx.fillText("Your destroyed "+score+" lanterns on your way to school",50,200);
-    ctx.fillText((score==0?(score<5?(score<10?(score<15?"You are truly evil":"You truly are a MONSTER"):"You are hated among your neighborhood"):"Other kids hate you"):"You are too nice:/"),50,250);
+    ctx.fillText((score==0?"You are too nice:/":(score<5?"Other kids hate you":(score<10?"You are hated among your neighborhood":(score<15?"You are truly evil":"You truly are a MONSTER")))),50,250);
   },10); 
 }

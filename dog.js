@@ -26,5 +26,5 @@ Dog.prototype.move = function(){
     this.x -= this.xSpeed;this.facing="left";this.spriteX+=0.2;
   }
   var a=entitys[0].hitBox,b=this.hitBox;
-  if(a.left<b.right&&a.right>b.left&&a.top<b.bottom&&a.bottom>b.top){ending(false,"You got stopped by a dog");return false;}
+  if(a.left<b.right&&a.right>b.left&&a.top<b.bottom&&a.bottom>b.top){ending(false,"You got stopped by a guard dog");return false;}
 }
