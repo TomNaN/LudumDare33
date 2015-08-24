@@ -29,3 +29,14 @@ function drawMap(text,cont){
     entitys = entitys.concat(entityBox[level])
   }
 }
+function ending(win,text){
+  clearInterval(interval);
+  setTimeout(function(){
+    ctx.font = "50px Verdana";
+    ctx.fillText((win?"YOU MADE IT TO SCHOOL":"GAME OVER"),100,50);
+    ctx.font = "20px Verdana";
+    ctx.fillText(text,50,150);
+    ctx.fillText("Your destroyed "+score+" lanterns on your way to school",50,200);
+    ctx.fillText((score==0?(score<5?(score<10?(score<15?"You are truly evil":"You truly are a MONSTER"):"You are hated among your neighborhood"):"Other kids hate you"):"You are too nice:/"),50,250);
+  },10); 
+}

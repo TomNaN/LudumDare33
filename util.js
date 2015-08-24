@@ -12,7 +12,8 @@ var canvas,
     interval,
     screenShot=[],
     debug=false,
-    img=new Image();
+    img=new Image(),
+    score = 0;
 function begin(){
   getFile("resources/level.txt")
   canvas = document.getElementById("gameCanvas");
