@@ -9,14 +9,18 @@ function drawMap(text,cont){
   if(!levels[level]){
     map[map[level]?level:(function(){level=0;return 0}).call(null,null)].replace(/^\s+/,"").split('\n').forEach(function(e,y){
       e.split('').forEach(function(e,x){
-        switch(+e){
-          case 1:tiles.push(new TileBasic(x*spriteWidth, y*spriteWidth));break;    
-          case 2:cont?null:entitys.unshift(new Hero(x*spriteWidth, y*spriteWidth, 5, 4, 20));tiles.push(new TileAir(x*spriteWidth, y*spriteWidth));break;
-          case 3:tiles.push(new TileLantern(x*spriteWidth, y*spriteWidth));break;
-          case 4:entitys.push(new Dog(x*spriteWidth, y*spriteWidth, 3, 3, 0));tiles.push(new TileAir(x*spriteWidth, y*spriteWidth));break;
-          case 5:tiles.push(new TileCloud(x*spriteWidth, y*spriteWidth,4));break;
-          case 6:tiles.push(new TileCloud(x*spriteWidth, y*spriteWidth,5));break;
-          case 7:tiles.push(new TileCloud(x*spriteWidth, y*spriteWidth,6));break;
+        switch(e){
+          case "1":tiles.push(new TileBasic(x*spriteWidth, y*spriteWidth));break;    
+          case "2":cont?null:entitys.unshift(new Hero(x*spriteWidth, y*spriteWidth, 5, 4, 20));tiles.push(new TileAir(x*spriteWidth, y*spriteWidth));break;
+          case "3":tiles.push(new TileLantern(x*spriteWidth, y*spriteWidth));break;
+          case "4":entitys.push(new Dog(x*spriteWidth, y*spriteWidth, 3, 3, 0));tiles.push(new TileAir(x*spriteWidth, y*spriteWidth));break;
+          case "5":tiles.push(new TileCloud(x*spriteWidth, y*spriteWidth,4));break;
+          case "6":tiles.push(new TileCloud(x*spriteWidth, y*spriteWidth,5));break;
+          case "7":tiles.push(new TileCloud(x*spriteWidth, y*spriteWidth,6));break;
+          case "8":tiles.push(new TileSchool(x*spriteWidth, y*spriteWidth,0,3));break;
+          case "9":tiles.push(new TileSchool(x*spriteWidth, y*spriteWidth,1,3));break;
+          case "a":tiles.push(new TileSchool(x*spriteWidth, y*spriteWidth,0,4));break;
+          case "b":tiles.push(new TileSchool(x*spriteWidth, y*spriteWidth,1,4));break;
           default:tiles.push(new TileAir(x*spriteWidth, y*spriteWidth));
         }
       })
@@ -33,7 +37,7 @@ function ending(win,text){
   clearInterval(interval);
   setTimeout(function(){
     ctx.font = "50px Verdana";
-    ctx.fillText((win?"YOU MADE IT TO SCHOOL":"GAME OVER"),100,50);
+    ctx.fillText((win?"YOU WIN":"GAME OVER"),100,50);
     ctx.font = "20px Verdana";
     ctx.fillText(text,50,150);
     ctx.fillText("Your destroyed "+score+" lanterns on your way to school",50,200);

@@ -17,12 +17,15 @@ var canvas,
 function begin(){
   getFile("resources/level.txt")
   canvas = document.getElementById("gameCanvas");
+  bgm.play();
+  bgm.volume = 0.2;
   ctx = canvas.getContext("2d");
   drawMap(mapData);
   movement();
   interval = setInterval(game, 1000/60);
 }
 function game() {
+  bgm.currentTime>=bgm.duration-0.5?bgm.currentTime=0:null;
   ctx.clearRect(0, 0, 640, 480);
   ctx.fillStyle = "#1122FF";
   ctx.fillRect(0,0,640,480);
