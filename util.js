@@ -70,3 +70,8 @@ function getFile(file){
 function readFile(){
   mapData = xmlhttp.readyState==4?xmlhttp.responseText:null;
 }
+function blurred(){
+  for(var i in moveObj){
+    moveObj[i] = false;
+  }
+}
