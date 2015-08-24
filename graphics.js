@@ -34,6 +34,7 @@ function drawMap(text,cont){
   }
 }
 function ending(win,text){
+  ctx.fillStyle="#000000";
   clearInterval(interval);
   setTimeout(function(){
     ctx.font = "50px Verdana";

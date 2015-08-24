@@ -19,6 +19,11 @@ function begin(){
   canvas = document.getElementById("gameCanvas");
   bgm.play();
   bgm.volume = 0.2;
+  sfxJump.volume = 0.5;
+  deadLantern.volume = 0.2;
+  deadPlayer.volume = 0.2;
+  win.volume = 0.5;
+
   ctx = canvas.getContext("2d");
   drawMap(mapData);
   movement();
@@ -36,7 +41,7 @@ function game() {
     entitys[i].draw();
   }
   tiles.forEach(function(e){e.draw()}); 
-  getFPS();
+  //getFPS();
   if(debug){
     screenShot.push(canvas.toDataURL("png"));
   }
