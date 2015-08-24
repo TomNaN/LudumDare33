@@ -13,7 +13,8 @@ function Hero(x, y, xSpeed, ySpeed, maxJumpFuel){
 Hero.prototype = Object.create(Entity.prototype);
 Hero.prototype.move = function(){
   this.y>canvas.height?this.y=-10:null;
-  this.x>canvas.width-10?(function(){this.x=-10;level++;drawMap(mapData,true)}).call(this,null):null;
+  this.x>canvas.width-10&&level<mapData.split('-').length-1?(function(){this.x=-10;level++;drawMap(mapData,true)}).call(this,null):null;
+  this.x>canvas.width-10&&level==mapData.split('-').length-1?this.x=canvas.width-11:null;
   this.x<-20?(function(){this.x=canvas.width-20;level?(function(){level--;drawMap(mapData,true);}).call(this,null):this.x=-19;}).call(this,null):null;
   this.falling?this.y++:null;
   this.x>canvas.width+20?(function(){this.x=-10;level++;drawMap(mapData,true)}).call(this,null):null;
