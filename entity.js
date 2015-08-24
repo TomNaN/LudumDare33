@@ -40,6 +40,8 @@ Entity.prototype.draw = function(){
 Entity.prototype.jump = function(){
   if(!this.falling||this.jumpFlag) {
     this.jumpFlag=true;
+    sfxJump.currentTime = 0;
+    sfxJump.play();
     this.ySpeed = this.yMaxSpeed;
     this.y -= this.ySpeed;
   	if(this.jumpFuel > 0) {
