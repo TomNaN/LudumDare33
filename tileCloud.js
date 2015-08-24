@@ -11,9 +11,9 @@ TileCloud.prototype.draw = function(){
 }                    
 TileCloud.prototype.collision = function(obj){
   var a=obj.hitBox,b=this.hitBox;
-  if(a.right-5>b.left&&a.left+5<b.right&&a.bottom>b.top+obj.ySpeed+30&&a.top<b.bottom){return false;} 
-  if(a.right>b.left-40&&a.left+5<b.right&&a.bottom>b.top+obj.ySpeed+30&&a.top<b.bottom){return false;}  
-  if(a.right+5>b.left&&a.left<b.right&&a.bottom>b.top+obj.ySpeed+30&&a.top<b.bottom){return false;} 
-  if(a.right-5>b.left&&a.left+5<b.right&&a.bottom+obj.ySpeed>b.top-40&&a.top<b.bottom+obj.ySpeed-25){obj.y=b.top-40;obj.falling=false;obj.jumpFlag=false;return "top";}  
+  if(a.right-5>b.left&&a.left+5<b.right&&a.bottom>b.top+30&&a.top<b.bottom){return false;} 
+  if(a.right>b.left-40&&a.left+5<b.right&&a.bottom>b.top+30&&a.top<b.bottom){return false;}  
+  if(a.right+5>b.left&&a.left<b.right&&a.bottom>b.top+30&&a.top<b.bottom){return false;} 
+  if(a.right-5>b.left&&a.left+5<b.right&&a.bottom>b.top-40&&a.top<b.bottom+obj.ySpeed-25){obj.y=b.top-40;obj.falling=false;obj.jumpFlag=false;return "top";}  
   return false;         
 } 

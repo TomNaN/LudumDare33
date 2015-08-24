@@ -10,9 +10,9 @@ var canvas,
     levels = [],
     entityBox = [],
     interval,
-    screenShot,
-    stopper,
-    img;
+    screenShot=[],
+    debug=false,
+    img=new Image();
 function begin(){
   getFile("resources/level.txt")
   canvas = document.getElementById("gameCanvas");
@@ -33,12 +33,8 @@ function game() {
   }
   tiles.forEach(function(e){e.draw()}); 
   getFPS();
-  if(stopper){
-    screenShot = canvas.toDataURL("png");
-    img=new Image();
-    img.src = screenShot;
-    clearInterval(interval);    
-    setTimeout(function(){ctx.drawImage(img,0,0);},5);
+  if(debug){
+    screenShot.push(canvas.toDataURL("png"));
   }
 }
 function getFPS(){
@@ -58,7 +54,11 @@ function getFPS(){
   ctx.fillText(fps,5,35);
 }
 function errorHandler(error){
-  stopper = true;
+  if(debug){
+    clearInterval(interval);
+    img.src = screenShot[screenShot.length-1];    
+    setTimeout(function(){ctx.drawImage(img,0,0);},5);
+  }
   throw error;
 }
 function getFile(file){

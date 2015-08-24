@@ -8,7 +8,7 @@ function Dog(x, y, xSpeed, ySpeed, maxJumpFuel){
   this.maxJumpFuel = maxJumpFuel;
   this.jumpFuel = maxJumpFuel;
   this.spriteY = 2;
-  this.hitBox = {top:this.y+20,left:this.x,right:this.x+40,bottom:this.y+40}
+  this.hitBox = {top:this.y+26,left:this.x,right:this.x+40,bottom:this.y+40}
 }
 Dog.prototype = Object.create(Entity.prototype);
 Dog.prototype.move = function(){
@@ -21,5 +21,5 @@ Dog.prototype.move = function(){
   this.hitBox = {top:this.y+20,left:this.x,right:this.x+40,bottom:this.y+40}
   entitys[0].x>this.x?(function(){this.x += this.xSpeed;this.facing="right";this.spriteX+=0.2}).call(this,null):(function(){this.x -= this.xSpeed;this.facing="left";this.spriteX+=0.2}).call(this,null);
   var a=entitys[0].hitBox,b=this.hitBox;
-  if(a.left<b.right&&a.right>b.left&&a.top<b.bottom&&a.bottom>b.top){errorHandler("collision")}
+  if(a.left<b.right&&a.right>b.left&&a.top<b.bottom&&a.bottom>b.top){return false;}
 }
