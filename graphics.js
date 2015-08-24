@@ -13,7 +13,10 @@ function drawMap(text,cont){
           case 1:tiles.push(new TileBasic(x*spriteWidth, y*spriteWidth));break;    
           case 2:cont?null:entitys.unshift(new Hero(x*spriteWidth, y*spriteWidth, 4, 4, 20));tiles.push(new TileAir(x*spriteWidth, y*spriteWidth));break;
           case 3:tiles.push(new TileLantern(x*spriteWidth, y*spriteWidth));break;
-          case 4:entitys.push(new Dog(x*spriteWidth, y*spriteWidth, 3, 3, 0));tiles.push(new TileAir(x*spriteWidth, y*spriteWidth));break 
+          case 4:entitys.push(new Dog(x*spriteWidth, y*spriteWidth, 3, 3, 0));tiles.push(new TileAir(x*spriteWidth, y*spriteWidth));break;
+          case 5:tiles.push(new TileCloud(x*spriteWidth, y*spriteWidth,4));break;
+          case 6:tiles.push(new TileCloud(x*spriteWidth, y*spriteWidth,5));break;
+          case 7:tiles.push(new TileCloud(x*spriteWidth, y*spriteWidth,6));break;
           default:tiles.push(new TileAir(x*spriteWidth, y*spriteWidth));
         }
       })
