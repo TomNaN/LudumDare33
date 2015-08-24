@@ -7,7 +7,7 @@ function Dog(x, y, xSpeed, ySpeed, maxJumpFuel){
   this.ySpeed = 0;
   this.maxJumpFuel = maxJumpFuel;
   this.jumpFuel = maxJumpFuel;
-  this.spriteY = 1;
+  this.spriteY = 2;
   this.hitBox = {top:this.y+20,left:this.x,right:this.x+40,bottom:this.y+40}
 }
 Dog.prototype = Object.create(Entity.prototype);
