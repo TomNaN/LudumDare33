@@ -8,14 +8,18 @@ var canvas,
     fps = "60",
     level=0,
     levels = [],
-    entityBox = [];
+    entityBox = [],
+    interval,
+    screenShot,
+    stopper,
+    img;
 function begin(){
   getFile("resources/level.txt")
   canvas = document.getElementById("gameCanvas");
   ctx = canvas.getContext("2d");
   drawMap(mapData);
   movement();
-  setInterval(game, 1000/60);
+  interval = setInterval(game, 1000/60);
 }
 function game() {
   ctx.clearRect(0, 0, 640, 480);
@@ -29,6 +33,13 @@ function game() {
   }
   tiles.forEach(function(e){e.draw()}); 
   getFPS();
+  if(stopper){
+    screenShot = canvas.toDataURL("png");
+    img=new Image();
+    img.src = screenShot;
+    clearInterval(interval);    
+    setTimeout(function(){ctx.drawImage(img,0,0);},5);
+  }
 }
 function getFPS(){
   if(timerClock==0){     // this calculates the current fps the game is running at
@@ -47,6 +58,7 @@ function getFPS(){
   ctx.fillText(fps,5,35);
 }
 function errorHandler(error){
+  stopper = true;
   throw error;
 }
 function getFile(file){
